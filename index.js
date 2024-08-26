@@ -7,10 +7,7 @@ connectDB();
 app.use(
   cors({
     origin: (origin, callback) => {
-      const allowedOrigins = [
-        "https://tradewind.netlify.app",
-        "http://localhost:3002",
-      ];
+      const allowedOrigins = ["https://tradewind.netlify.app"];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -154,7 +151,7 @@ app.use("/user", userRouter);
 //   res.send("holding added");
 // });
 
-app.get('/addPositions',async(req,res) => {
+app.get("/addPositions", async (req, res) => {
   const temppos = [
     {
       product: "CNC",
@@ -186,11 +183,11 @@ app.get('/addPositions',async(req,res) => {
       price: pos.price,
       net: pos.net,
       day: pos.day,
-      isLoss:pos.isLoss,
+      isLoss: pos.isLoss,
     });
-  })
-  res.send("position added")
-})
+  });
+  res.send("position added");
+});
 
 app.get("/allHoldings", async (req, res) => {
   const response = await Holding.find({});
