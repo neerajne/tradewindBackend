@@ -7,7 +7,11 @@ connectDB();
 app.use(
   cors({
     origin: (origin, callback) => {
-      const allowedOrigins = ["https://tradewind.netlify.app"];
+      const allowedOrigins = [
+        "https://tradewind.netlify.app",
+        "https://dashboardtradewind.netlify.app",
+        "http://localhost:3000", // For local development
+      ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -16,6 +20,7 @@ app.use(
     },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // Allow cookies if you're using them
   })
 );
 
