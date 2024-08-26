@@ -8,7 +8,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       const allowedOrigins = [
-        "https://tradewind.netlify.app/",
+        "https://tradewind.netlify.app",
         "http://localhost:3002",
       ];
       if (!origin || allowedOrigins.includes(origin)) {
